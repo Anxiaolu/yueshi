@@ -46,6 +46,4 @@
         </property>
     </bean>
     
-    <import resource="spring-jpa.xml"></import>
-    
 </beans>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lu.cms.dao.CmsCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsComment" >
+    <id column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="agent" property="agent" jdbcType="VARCHAR" />
+    <result column="system_id" property="systemId" jdbcType="INTEGER" />
+    <result column="ctime" property="ctime" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lu.cms.model.CmsComment" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    comment_id, pid, article_id, user_id, status, ip, agent, system_id, ctime
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cms_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cms_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lu.cms.model.CmsComment" >
+    insert into cms_comment (comment_id, pid, article_id, 
+      user_id, status, ip, 
+      agent, system_id, ctime, 
+      content)
+    values (#{commentId,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{ip,jdbcType=VARCHAR}, 
+      #{agent,jdbcType=VARCHAR}, #{systemId,jdbcType=INTEGER}, #{ctime,jdbcType=BIGINT}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lu.cms.model.CmsComment" >
+    insert into cms_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="agent != null" >
+        agent,
+      </if>
+      <if test="systemId != null" >
+        system_id,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="systemId != null" >
+        #{systemId,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lu.cms.model.CmsComment" >
+    update cms_comment
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        agent = #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="systemId != null" >
+        system_id = #{systemId,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lu.cms.model.CmsComment" >
+    update cms_comment
+    set pid = #{pid,jdbcType=INTEGER},
+      article_id = #{articleId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      ip = #{ip,jdbcType=VARCHAR},
+      agent = #{agent,jdbcType=VARCHAR},
+      system_id = #{systemId,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lu.cms.model.CmsComment" >
+    update cms_comment
+    set pid = #{pid,jdbcType=INTEGER},
+      article_id = #{articleId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      ip = #{ip,jdbcType=VARCHAR},
+      agent = #{agent,jdbcType=VARCHAR},
+      system_id = #{systemId,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=BIGINT}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+</mapper>
