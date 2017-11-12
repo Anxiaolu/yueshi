@@ -7,6 +7,16 @@ public class CmsSetting {
 
     private String settingValue;
 
+    public CmsSetting(Integer settingId, String settingKey, String settingValue) {
+        this.settingId = settingId;
+        this.settingKey = settingKey;
+        this.settingValue = settingValue;
+    }
+
+    public CmsSetting() {
+        super();
+    }
+
     public Integer getSettingId() {
         return settingId;
     }

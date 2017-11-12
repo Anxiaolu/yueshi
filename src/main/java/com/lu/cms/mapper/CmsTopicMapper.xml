@@ -2,11 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsTopicMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsTopic" >
-    <id column="topic_id" property="topicId" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
-    <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="ctime" property="ctime" jdbcType="BIGINT" />
+    <constructor >
+      <idArg column="topic_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     topic_id, title, description, url, ctime

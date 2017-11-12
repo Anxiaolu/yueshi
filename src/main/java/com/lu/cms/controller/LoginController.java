@@ -27,7 +27,8 @@ public class LoginController {
     
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
-        return "login";
+        System.out.println("com.lu.cms.controller.LoginController.login()");
+        return "/login";
     }
     
     @RequestMapping(value = "/home",method = RequestMethod.GET)
@@ -38,6 +39,7 @@ public class LoginController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public ModelAndView checkLogin(@RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password) {
+        System.out.println("com.lu.cms.controller.LoginController.checkLogin()" + username + password);
         ModelAndView mv = new ModelAndView();
         if (username != null || username.equals("")) {
             User user = userService.selectByUsernameAndPassword(username, password);

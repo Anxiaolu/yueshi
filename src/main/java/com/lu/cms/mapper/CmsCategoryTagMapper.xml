@@ -2,9 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsCategoryTagMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsCategoryTag" >
-    <id column="category_tag_id" property="categoryTagId" jdbcType="INTEGER" />
-    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
-    <result column="tag_id" property="tagId" jdbcType="INTEGER" />
+    <constructor >
+      <idArg column="category_tag_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="category_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tag_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     category_tag_id, category_id, tag_id

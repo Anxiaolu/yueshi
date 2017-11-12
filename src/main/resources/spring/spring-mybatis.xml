@@ -10,13 +10,11 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.lu.cms" />
-    
     <!--扫描资源文件-->
     <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true"/>
     <!--Druid数据源-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-        <property name="driverClassName" value="${database.driverClassName}"/>
+        <property name="driverClassName" value="${database.driver}"/>
         <property name="url" value="${database.url}" />
         <property name="username" value="${database.username}" />
         <property name="password" value="${database.password}" />
@@ -30,7 +28,10 @@
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
         <property name="minEvictableIdleTimeMillis" value="1800000" />
         <property name="defaultAutoCommit" value="false" />
+
     </bean>
+    
+    <context:component-scan base-package="com.lu.cms"/>
     
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -45,13 +46,27 @@
     
     <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lu.cms"/>
+        <property name="basePackage" value="com.lu.cms.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="publish*" />
+            <tx:method name="save*" />
+            <tx:method name="add*" />
+            <tx:method name="update*" />
+            <tx:method name="insert*" />
+            <tx:method name="create*" />
+            <tx:method name="del*" />
+            <tx:method name="load*" />
+            <tx:method name="init*" />
+            <tx:method name="*"  read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
     
     <!-- 开启事务管理注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>

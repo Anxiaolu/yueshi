@@ -13,6 +13,19 @@ public class CmsSystem {
 
     private Long orders;
 
+    public CmsSystem(Integer systemId, String name, String code, String description, Long ctime, Long orders) {
+        this.systemId = systemId;
+        this.name = name;
+        this.code = code;
+        this.description = description;
+        this.ctime = ctime;
+        this.orders = orders;
+    }
+
+    public CmsSystem() {
+        super();
+    }
+
     public Integer getSystemId() {
         return systemId;
     }

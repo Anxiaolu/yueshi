@@ -2,9 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsSettingMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsSetting" >
-    <id column="setting_id" property="settingId" jdbcType="INTEGER" />
-    <result column="setting_key" property="settingKey" jdbcType="VARCHAR" />
-    <result column="setting_value" property="settingValue" jdbcType="VARCHAR" />
+    <constructor >
+      <idArg column="setting_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="setting_key" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="setting_value" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     setting_id, setting_key, setting_value

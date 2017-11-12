@@ -2,17 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsCategoryMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsCategory" >
-    <id column="category_id" property="categoryId" jdbcType="INTEGER" />
-    <result column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="level" property="level" jdbcType="TINYINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
-    <result column="icon" property="icon" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="alias" property="alias" jdbcType="VARCHAR" />
-    <result column="system_id" property="systemId" jdbcType="INTEGER" />
-    <result column="ctime" property="ctime" jdbcType="BIGINT" />
-    <result column="orders" property="orders" jdbcType="BIGINT" />
+    <constructor >
+      <idArg column="category_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="level" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="icon" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="alias" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="system_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="orders" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     category_id, pid, level, name, description, icon, type, alias, system_id, ctime, 

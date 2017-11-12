@@ -19,6 +19,22 @@ public class CmsPage {
 
     private String content;
 
+    public CmsPage(Integer pageId, Integer pid, String title, String alias, String keywords, String description, Long ctime, Long orders, String content) {
+        this.pageId = pageId;
+        this.pid = pid;
+        this.title = title;
+        this.alias = alias;
+        this.keywords = keywords;
+        this.description = description;
+        this.ctime = ctime;
+        this.orders = orders;
+        this.content = content;
+    }
+
+    public CmsPage() {
+        super();
+    }
+
     public Integer getPageId() {
         return pageId;
     }

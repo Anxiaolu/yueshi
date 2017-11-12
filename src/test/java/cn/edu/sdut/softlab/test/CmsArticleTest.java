@@ -6,8 +6,6 @@
 package cn.edu.sdut.softlab.test;
 
 import com.lu.cms.service.CmsArticleService;
-import com.lu.cms.model.CmsArticle;
-import com.lu.cms.model.User;
 import com.lu.cms.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,22 +33,22 @@ public class CmsArticleTest {
     @Autowired
     UserService userService;
     
-    @Test
-    public void articleInsertTest() {
-        CmsArticle cmsArticle = new CmsArticle();
-        cmsArticle.setArticleId(104);
-        cmsArticle.setTitle("1111111");
-        cmsArticle.setType(new Byte("1"));
-        cmsArticle.setAllowcomments(new Byte("1"));
-        cmsArticle.setStatus(new Byte("1"));
-        cmsArticle.setUserId(1);
-        cmsArticle.setReadnumber(1);
-        cmsArticle.setTop(0);
-        cmsArticle.setCtime(Long.valueOf("1489845594355"));
-        cmsArticle.setOrders(Long.valueOf("1489845594355"));
-        cmsArticleService.insert(cmsArticle);
-    }
-    
+//    @Test
+//    public void articleInsertTest() {
+//        CmsArticle cmsArticle = new CmsArticle();
+//        cmsArticle.setArticleId(104);
+//        cmsArticle.setTitle("1111111");
+//        cmsArticle.setType(new Byte("1"));
+//        cmsArticle.setAllowcomments(new Byte("1"));
+//        cmsArticle.setStatus(new Byte("1"));
+//        cmsArticle.setUserId(1);
+//        cmsArticle.setReadnumber(1);
+//        cmsArticle.setTop(0);
+//        cmsArticle.setCtime(Long.valueOf("1489845594355"));
+//        cmsArticle.setOrders(Long.valueOf("1489845594355"));
+//        cmsArticleService.insert(cmsArticle);
+//    }
+//    
 //    @Test
 //    public void selectTest(){
 //        System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectTest()" + cmsArticleService.selectByPrimaryKey(1));

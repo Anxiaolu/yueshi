@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
  * @author huanlu
  */
 @Service
+@SuppressWarnings("unchecked")
 public class UserServiceImpl implements UserService{
 
     @Autowired

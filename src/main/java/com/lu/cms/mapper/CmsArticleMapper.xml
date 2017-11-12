@@ -2,26 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsArticleMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsArticle" >
-    <id column="article_id" property="articleId" jdbcType="INTEGER" />
-    <result column="topic_id" property="topicId" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="author" property="author" jdbcType="VARCHAR" />
-    <result column="fromurl" property="fromurl" jdbcType="VARCHAR" />
-    <result column="image" property="image" jdbcType="VARCHAR" />
-    <result column="keywords" property="keywords" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="allowcomments" property="allowcomments" jdbcType="TINYINT" />
-    <result column="status" property="status" jdbcType="TINYINT" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="readnumber" property="readnumber" jdbcType="INTEGER" />
-    <result column="top" property="top" jdbcType="INTEGER" />
-    <result column="system_id" property="systemId" jdbcType="INTEGER" />
-    <result column="ctime" property="ctime" jdbcType="BIGINT" />
-    <result column="orders" property="orders" jdbcType="BIGINT" />
+    <constructor >
+      <idArg column="article_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="topic_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="author" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fromurl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="image" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="keywords" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="allowcomments" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="readnumber" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="top" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="system_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="orders" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.lu.cms.model.CmsArticle" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  <resultMap id="ResultMapWithBLOBs" type="com.lu.cms.model.CmsArticle" >
+    <constructor >
+      <idArg column="article_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="topic_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="author" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fromurl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="image" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="keywords" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="allowcomments" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="readnumber" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="top" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="system_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="orders" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="content" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     article_id, topic_id, title, author, fromurl, image, keywords, description, type, 

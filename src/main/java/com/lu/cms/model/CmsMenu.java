@@ -13,6 +13,19 @@ public class CmsMenu {
 
     private Long orders;
 
+    public CmsMenu(Integer menuId, Integer pid, String name, String url, String target, Long orders) {
+        this.menuId = menuId;
+        this.pid = pid;
+        this.name = name;
+        this.url = url;
+        this.target = target;
+        this.orders = orders;
+    }
+
+    public CmsMenu() {
+        super();
+    }
+
     public Integer getMenuId() {
         return menuId;
     }

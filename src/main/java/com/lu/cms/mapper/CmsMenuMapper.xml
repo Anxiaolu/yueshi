@@ -2,12 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsMenuMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsMenu" >
-    <id column="menu_id" property="menuId" jdbcType="INTEGER" />
-    <result column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="target" property="target" jdbcType="VARCHAR" />
-    <result column="orders" property="orders" jdbcType="BIGINT" />
+    <constructor >
+      <idArg column="menu_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="target" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="orders" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     menu_id, pid, name, url, target, orders

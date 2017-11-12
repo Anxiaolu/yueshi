@@ -20,7 +20,7 @@
         <!-- 生成模型的包名和位置-->    
         <javaModelGenerator targetPackage="com.lu.cms.model" targetProject="src/main/java">    
             <property name="enableSubPackages" value="true"/>
-<!--            <property name="constructorBased" value="true"/>-->
+            <property name="constructorBased" value="true"/>
             <property name="immutable" value="false"/>    
             <property name="trimStrings" value="true"/>    
         </javaModelGenerator>    
@@ -45,6 +45,12 @@
         <table tableName="cms_article" domainObjectName="CmsArticle" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
         <table tableName="cms_menu" domainObjectName="CmsMenu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
         <table tableName="cms_page" domainObjectName="CmsPage" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
-        <table tableName="upms_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
+        <table tableName="upms_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     </context>    
 </generatorConfiguration>
+
+
+
+
+
+

@@ -2,18 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lu.cms.dao.CmsCommentMapper" >
   <resultMap id="BaseResultMap" type="com.lu.cms.model.CmsComment" >
-    <id column="comment_id" property="commentId" jdbcType="INTEGER" />
-    <result column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="article_id" property="articleId" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="status" property="status" jdbcType="TINYINT" />
-    <result column="ip" property="ip" jdbcType="VARCHAR" />
-    <result column="agent" property="agent" jdbcType="VARCHAR" />
-    <result column="system_id" property="systemId" jdbcType="INTEGER" />
-    <result column="ctime" property="ctime" jdbcType="BIGINT" />
+    <constructor >
+      <idArg column="comment_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="article_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="agent" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="system_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.lu.cms.model.CmsComment" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  <resultMap id="ResultMapWithBLOBs" type="com.lu.cms.model.CmsComment" >
+    <constructor >
+      <idArg column="comment_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="article_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="agent" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="system_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="content" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     comment_id, pid, article_id, user_id, status, ip, agent, system_id, ctime
