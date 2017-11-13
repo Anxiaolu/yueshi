@@ -47,9 +47,9 @@
   <select id="selectByUsernameAndPassword" parameterType="java.lang.String" resultMap="BaseResultMap">
       select
       <include refid="Base_Column_List" />
-      from upms_user,
-      where username=#{username},
-      and   password=#{password}
+      from upms_user
+      where username=#{arg0}
+      and   password=#{arg1}
   </select>
   <insert id="insertSelective" parameterType="com.lu.cms.model.User" >
     insert into upms_user

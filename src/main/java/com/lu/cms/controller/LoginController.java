@@ -27,7 +27,6 @@ public class LoginController {
     
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
-        System.out.println("com.lu.cms.controller.LoginController.login()");
         return "/login";
     }
     
