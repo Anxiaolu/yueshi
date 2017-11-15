@@ -6,6 +6,7 @@
 package com.lu.cms.service;
 
 import com.lu.cms.model.CmsArticle;
+import java.util.List;
 
 /**
  *
@@ -26,4 +27,6 @@ public interface CmsArticleService {
     int updateByPrimaryKeyWithBLOBs(CmsArticle record);
 
     int updateByPrimaryKey(CmsArticle record);
+    
+    List<CmsArticle> selectAll();
 }

@@ -22,28 +22,6 @@
       <arg column="orders" jdbcType="BIGINT" javaType="java.lang.Long" />
     </constructor>
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.lu.cms.model.CmsArticle" >
-    <constructor >
-      <idArg column="article_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="topic_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="author" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="fromurl" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="image" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="keywords" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
-      <arg column="allowcomments" jdbcType="TINYINT" javaType="java.lang.Byte" />
-      <arg column="status" jdbcType="TINYINT" javaType="java.lang.Byte" />
-      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="readnumber" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="top" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="system_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="ctime" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="orders" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="content" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
-    </constructor>
-  </resultMap>
   <sql id="Base_Column_List" >
     article_id, topic_id, title, author, fromurl, image, keywords, description, type, 
     allowcomments, status, user_id, readnumber, top, system_id, ctime, orders
@@ -51,13 +29,18 @@
   <sql id="Blob_Column_List" >
     content
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from cms_article
     where article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+      select
+      *
+      from cms_article;
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from cms_article

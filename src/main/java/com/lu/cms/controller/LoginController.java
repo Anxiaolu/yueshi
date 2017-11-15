@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author huanlu
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/manager")
 public class LoginController {
     
     @Autowired
@@ -27,7 +27,7 @@ public class LoginController {
     
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
-        return "/login";
+        return "manager/login";
     }
     
     @RequestMapping(value = "/home",method = RequestMethod.GET)

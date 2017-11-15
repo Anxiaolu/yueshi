@@ -8,6 +8,7 @@ package com.lu.cms.service.Impl;
 import com.lu.cms.dao.CmsArticleMapper;
 import com.lu.cms.model.CmsArticle;
 import com.lu.cms.service.CmsArticleService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,11 @@ public class CmsArticleServiceImpl implements CmsArticleService {
     @Override
     public int updateByPrimaryKey(CmsArticle record) {
         return cmsArticleDao.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<CmsArticle> selectAll() {
+        return cmsArticleDao.selectAll();
     }
     
 }

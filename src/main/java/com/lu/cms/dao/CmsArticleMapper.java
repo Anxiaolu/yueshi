@@ -1,6 +1,7 @@
 package com.lu.cms.dao;
 
 import com.lu.cms.model.CmsArticle;
+import java.util.List;
 
 public interface CmsArticleMapper {
     int deleteByPrimaryKey(Integer articleId);
@@ -16,4 +17,6 @@ public interface CmsArticleMapper {
     int updateByPrimaryKeyWithBLOBs(CmsArticle record);
 
     int updateByPrimaryKey(CmsArticle record);
+    
+    List<CmsArticle> selectAll();
 }

@@ -29,15 +29,14 @@ public class loginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("1111" + request.getServletPath());
+        System.out.println("1111" + request.getContextPath());
         User user =(User) request.getAttribute("currentUser");
         // 过滤ajax
         if (null != request.getHeader("X-Requested-With") && "XMLHttpRequest".equalsIgnoreCase(request.getHeader("X-Requested-With"))) {
             return true;
         }
-        if (user == null) {
-            response.sendRedirect("/login");
-            return false;
-        }
+
+            //response.sendRedirect(request.getContextPath() + "/login");
         return true;
     }
 

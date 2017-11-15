@@ -59,7 +59,7 @@ public class CmsArticle {
     }
 
     public CmsArticle() {
-        super();
+
     }
 
     public Integer getArticleId() {

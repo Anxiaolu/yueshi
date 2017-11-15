@@ -9,6 +9,8 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    
+    <!--<mvc:view-controller path="/" view-name="/index.jsp"/>-->
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
     
@@ -27,7 +29,7 @@
     <mvc:interceptors>
         <!-- 获取登录信息 -->
         <mvc:interceptor>
-            <mvc:mapping path="/controller/**"/>
+            <mvc:mapping path="/manager/login"/>
             <bean class="com.lu.cms.interceptor.loginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

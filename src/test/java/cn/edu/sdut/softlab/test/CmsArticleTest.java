@@ -5,8 +5,10 @@
  */
 package cn.edu.sdut.softlab.test;
 
+import com.lu.cms.model.CmsArticle;
 import com.lu.cms.service.CmsArticleService;
 import com.lu.cms.service.UserService;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +53,14 @@ public class CmsArticleTest {
 //    
 //    @Test
 //    public void selectTest(){
-//        System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectTest()" + cmsArticleService.selectByPrimaryKey(1));
+//        System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectTest()" + cmsArticleService.selectByPrimaryKey(3));
 //    }
     
-//    @Test
-//    public void selectAllUser(){
-//        for (User user : userService.selectAllUser()) {
-//            System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectAllUser()" + user.toString());
-//        }
-//    }
+    @Test
+    public void selectAllUser(){
+        List<CmsArticle> articles = cmsArticleService.selectAll();
+        for (CmsArticle article : articles) {
+            System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectAllUser()" + article.toString());
+        }
+    }
 }
