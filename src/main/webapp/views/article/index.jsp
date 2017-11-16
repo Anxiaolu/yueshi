@@ -281,6 +281,7 @@
             </div>
             <div id="gotop"><a class="gotop"></a></div>
         </footer>
+        <script>var ctx = '${ctx}';</script>
         <script src="${ctx}/assets/js/bootstrap.min.js"></script>
         <script src="${ctx}/assets/js/jquery.ias.js"></script>
         <script src="${ctx}/assets/js/scripts.js"></script>

@@ -42,6 +42,20 @@
                 <value>classpath*:com/lu/cms/mapper/*Mapper.xml</value>
             </list>
         </property>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <!--使用下面的方式配置参数，一行配置一个 -->
+                        <value>
+                            params=value1
+                            reasonable=true
+                            autoRuntimeDialect=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
     
     <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->

@@ -98,6 +98,13 @@ jQuery.ias({
 	loader: '<div class="pagination-loading"><img src="../assets/images/loading.gif" /></div>',
 	triggerPageThreshold: 5,
 	onRenderComplete: function() {
+		$.ajax({
+			url: '/article/article_list',
+			type: 'POST',
+			success:function(data){
+				console.log(this);
+			}
+		})
 		$('.excerpt .thumb').lazyload({
 			placeholder: '../assets/images/occupying.png',
 			threshold: 400
