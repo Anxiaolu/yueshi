@@ -11,18 +11,6 @@ public class CmsTopic {
 
     private Long ctime;
 
-    public CmsTopic(Integer topicId, String title, String description, String url, Long ctime) {
-        this.topicId = topicId;
-        this.title = title;
-        this.description = description;
-        this.url = url;
-        this.ctime = ctime;
-    }
-
-    public CmsTopic() {
-        super();
-    }
-
     public Integer getTopicId() {
         return topicId;
     }

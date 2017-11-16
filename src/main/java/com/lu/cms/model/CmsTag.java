@@ -19,22 +19,6 @@ public class CmsTag {
 
     private Long orders;
 
-    public CmsTag(Integer tagId, String name, String description, String icon, Byte type, String alias, Integer systemId, Long ctime, Long orders) {
-        this.tagId = tagId;
-        this.name = name;
-        this.description = description;
-        this.icon = icon;
-        this.type = type;
-        this.alias = alias;
-        this.systemId = systemId;
-        this.ctime = ctime;
-        this.orders = orders;
-    }
-
-    public CmsTag() {
-        super();
-    }
-
     public Integer getTagId() {
         return tagId;
     }

@@ -58,8 +58,12 @@ public class CmsArticleServiceImpl implements CmsArticleService {
     }
 
     @Override
-    public List<CmsArticle> selectAll() {
-        return cmsArticleDao.selectAll();
+    public List<CmsArticle> selectAll(int pageNum,int pageSize) {
+        return cmsArticleDao.selectAll(pageNum,pageSize);
     }
     
+    @Override
+    public Integer countArticle(){
+        return cmsArticleDao.countArticle();
+    }
 }

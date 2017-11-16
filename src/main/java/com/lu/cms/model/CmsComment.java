@@ -21,23 +21,6 @@ public class CmsComment {
 
     private String content;
 
-    public CmsComment(Integer commentId, Integer pid, Integer articleId, Integer userId, Byte status, String ip, String agent, Integer systemId, Long ctime, String content) {
-        this.commentId = commentId;
-        this.pid = pid;
-        this.articleId = articleId;
-        this.userId = userId;
-        this.status = status;
-        this.ip = ip;
-        this.agent = agent;
-        this.systemId = systemId;
-        this.ctime = ctime;
-        this.content = content;
-    }
-
-    public CmsComment() {
-        super();
-    }
-
     public Integer getCommentId() {
         return commentId;
     }

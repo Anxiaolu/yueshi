@@ -28,10 +28,15 @@ public class CmsArticleController {
         return "article/index";
     }
     
-    @RequestMapping(value = "/article_list",method = RequestMethod.GET)
+    @RequestMapping(value = "/article_list",method = RequestMethod.POST)
     @ResponseBody
     public Object getArticleList(){
-        return cmsArticleService.selectAll();
+        //return cmsArticleService.selectAll();
+        return null;
     }
-            
+    
+    @RequestMapping(value = "/count")
+    public Integer countArticle(){
+        return cmsArticleService.countArticle();
+    }
 }

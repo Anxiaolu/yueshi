@@ -23,24 +23,6 @@ public class User {
 
     private Long ctime;
 
-    public User(Integer userId, String username, String password, String salt, String realname, String avatar, String phone, String email, Byte sex, Byte locked, Long ctime) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.salt = salt;
-        this.realname = realname;
-        this.avatar = avatar;
-        this.phone = phone;
-        this.email = email;
-        this.sex = sex;
-        this.locked = locked;
-        this.ctime = ctime;
-    }
-
-    public User() {
-        super();
-    }
-
     public Integer getUserId() {
         return userId;
     }

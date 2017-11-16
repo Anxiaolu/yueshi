@@ -7,16 +7,6 @@ public class CmsArticleCategory {
 
     private Integer categoryId;
 
-    public CmsArticleCategory(Integer articleCategoryId, Integer articleId, Integer categoryId) {
-        this.articleCategoryId = articleCategoryId;
-        this.articleId = articleId;
-        this.categoryId = categoryId;
-    }
-
-    public CmsArticleCategory() {
-        super();
-    }
-
     public Integer getArticleCategoryId() {
         return articleCategoryId;
     }

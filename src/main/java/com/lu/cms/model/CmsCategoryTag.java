@@ -7,16 +7,6 @@ public class CmsCategoryTag {
 
     private Integer tagId;
 
-    public CmsCategoryTag(Integer categoryTagId, Integer categoryId, Integer tagId) {
-        this.categoryTagId = categoryTagId;
-        this.categoryId = categoryId;
-        this.tagId = tagId;
-    }
-
-    public CmsCategoryTag() {
-        super();
-    }
-
     public Integer getCategoryTagId() {
         return categoryTagId;
     }

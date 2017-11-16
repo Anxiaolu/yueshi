@@ -28,5 +28,7 @@ public interface CmsArticleService {
 
     int updateByPrimaryKey(CmsArticle record);
     
-    List<CmsArticle> selectAll();
+    List<CmsArticle> selectAll(int pageNum,int pageSize);
+    
+    Integer countArticle();
 }

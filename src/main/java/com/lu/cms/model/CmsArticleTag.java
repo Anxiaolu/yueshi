@@ -7,16 +7,6 @@ public class CmsArticleTag {
 
     private Integer tagId;
 
-    public CmsArticleTag(Integer articleTagId, Integer articleId, Integer tagId) {
-        this.articleTagId = articleTagId;
-        this.articleId = articleId;
-        this.tagId = tagId;
-    }
-
-    public CmsArticleTag() {
-        super();
-    }
-
     public Integer getArticleTagId() {
         return articleTagId;
     }

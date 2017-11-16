@@ -37,31 +37,6 @@ public class CmsArticle {
 
     private String content;
 
-    public CmsArticle(Integer articleId, Integer topicId, String title, String author, String fromurl, String image, String keywords, String description, Byte type, Byte allowcomments, Byte status, Integer userId, Integer readnumber, Integer top, Integer systemId, Long ctime, Long orders, String content) {
-        this.articleId = articleId;
-        this.topicId = topicId;
-        this.title = title;
-        this.author = author;
-        this.fromurl = fromurl;
-        this.image = image;
-        this.keywords = keywords;
-        this.description = description;
-        this.type = type;
-        this.allowcomments = allowcomments;
-        this.status = status;
-        this.userId = userId;
-        this.readnumber = readnumber;
-        this.top = top;
-        this.systemId = systemId;
-        this.ctime = ctime;
-        this.orders = orders;
-        this.content = content;
-    }
-
-    public CmsArticle() {
-
-    }
-
     public Integer getArticleId() {
         return articleId;
     }
