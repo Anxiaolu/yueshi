@@ -1,4 +1,4 @@
-$(document).ready(function(){ 
+/*$(document).ready(function(){ 
 	$('.title').nextSibling.articleInit();
 });
 
@@ -12,3 +12,4 @@ $.articleInit = function(){
 		}
 	})
 }
+*/

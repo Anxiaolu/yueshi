@@ -109,6 +109,7 @@
                             <a href="#" title="资讯分享" >资讯分享</a>                
                         </div>
                     </div>
+                    <div id="article_list">
                     <article class="excerpt excerpt-1" style="">
                         <a class="focus" href="#" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
                         <header><a class="cat" href="#" title="MZ-NetBlog主题" >MZ-NetBlog主题<i></i></a>
@@ -169,6 +170,7 @@
                         </p>
                         <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
                     </article>
+                    </div>
                     <nav class="pagination" style="display: none;">
                         <ul>
                             <li class="prev-page"></li>
@@ -285,6 +287,7 @@
         <script src="${ctx}/assets/js/bootstrap.min.js"></script>
         <script src="${ctx}/assets/js/jquery.ias.js"></script>
         <script src="${ctx}/assets/js/scripts.js"></script>
+        <script src="${ctx}/assets/js/common/date-convert.js"></script>
         <script src="${ctx}/assets/js/data-init.js"></script>
     </body>
 </html>

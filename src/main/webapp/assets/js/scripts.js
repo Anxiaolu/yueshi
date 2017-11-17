@@ -88,31 +88,7 @@ $(".single .content img").lazyload({
 	effect: "fadeIn"
 });
 $('[data-toggle="tooltip"]').tooltip();
-jQuery.ias({
-	history: false,
-	container: '.content',
-	item: '.excerpt',
-	pagination: '.pagination',
-	next: '.next-page a',
-	trigger: '查看更多',
-	loader: '<div class="pagination-loading"><img src="../assets/images/loading.gif" /></div>',
-	triggerPageThreshold: 5,
-	onRenderComplete: function() {
-		$.ajax({
-			url: '/article/article_list',
-			type: 'POST',
-			success:function(data){
-				console.log(this);
-			}
-		})
-		$('.excerpt .thumb').lazyload({
-			placeholder: '../assets/images/occupying.png',
-			threshold: 400
-		});
-		$('.excerpt img').attr('draggable', 'false');
-		$('.excerpt a').attr('draggable', 'false')
-	}
-});
+
 $(window).scroll(function() {
 	var sidebar = $('.sidebar');
 	var sidebarHeight = sidebar.height();
@@ -127,30 +103,53 @@ $(window).scroll(function() {
 		$('.fixed').removeAttr("style")
 	}
 });
-/*(function() {
-	var oMenu = document.getElementById("rightClickMenu");
-	var aLi = oMenu.getElementsByTagName("li");
-	for (i = 0; i < aLi.length; i++) {
-		aLi[i].onmouseover = function() {
-			$(this).addClass('rightClickMenuActive');
-		};
-		aLi[i].onmouseout = function() {
-			$(this).removeClass('rightClickMenuActive');
+
+(function(){
+	console.log(convertTime(new Date().getTime(),"yyyy-MM-dd hh:mm:ss"));
+	var runday = 1;
+	var articleCount = 0;
+	$.post(ctx + '/article/count', function(data) {
+			articleCount = data;
+		});
+	$('#notice').html();
+	var pageCount = 0;
+	var target = $('#article_list');
+	jQuery.ias({
+		history: false,
+		container: '.content',
+		item: '.excerpt',
+		pagination: '.pagination',
+		next: '.next-page a',
+		trigger: '查看更多',
+		loader: '<div class="pagination-loading"><img src="../assets/images/loading.gif" /></div>',
+		triggerPageThreshold: 5,
+		beforePageChange:function(curScrOffset){
+				pageCount++;
+	        },
+		onPageChange: function(pageNum, scrollOffset) {
+
+	        },
+		onRenderComplete: function(pagenum) {	
+			$.ajax({
+				url: ctx + '/article/article_list',
+				type: 'POST',
+				data:{pageNum:pageCount,pageSize:'5'},
+				success:function(data){
+					$.each(data, function(index, val) {
+						
+					});
+				}
+			})
+			$('.excerpt .thumb').lazyload({
+				placeholder: '../assets/images/occupying.png', 
+				threshold: 400
+			});
+			$('.excerpt img').attr('draggable', 'false');
+			$('.excerpt a').attr('draggable', 'false')
 		}
-	}
-	document.oncontextmenu = function(event) {
-		$(oMenu).fadeOut(0);
-		var event = event || window.event;
-		var style = oMenu.style;
-		$(oMenu).fadeIn(300);
-		style.top = event.clientY + "px";
-		style.left = event.clientX + "px";
-		return false
-	};
-	document.onclick = function() {
-		$(oMenu).fadeOut(100);
-	}
-})();*/
+	});
+})();
+
 document.onkeydown = function(event) {
 	var e = event || window.event || arguments.callee.caller.arguments[0];
 	if (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 13) return true;
@@ -158,13 +157,7 @@ document.onkeydown = function(event) {
 		return false
 	}
 };
-/*try {
-	if (window.console && window.console.log) {
-		console.log("\n欢迎访问站长素材！\n\n");
-		console.log("\n请记住我们的网址：%c sc.chinaz.com", "color:red")
-	}
-} catch (e) {};
-*/
+
 function SiteSearch(send_url, divTgs) {
 	var str = $.trim($(divTgs).val());
 	if (str.length > 0 && str != "请输入关键字") {
