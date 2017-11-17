@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -30,9 +31,9 @@ public class CmsArticleController {
     
     @RequestMapping(value = "/article_list",method = RequestMethod.POST)
     @ResponseBody
-    public Object getArticleList(){
-        //return cmsArticleService.selectAll();
-        return null;
+    public Object getArticleList(@RequestParam("pageNum")Integer pageNum,
+                                @RequestParam("pageSize")Integer pageSize){
+        return cmsArticleService.selectAll(pageNum, pageSize);
     }
     
     @RequestMapping(value = "/count")

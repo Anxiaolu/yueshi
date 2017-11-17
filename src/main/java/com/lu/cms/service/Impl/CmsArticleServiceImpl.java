@@ -5,6 +5,7 @@
  */
 package com.lu.cms.service.Impl;
 
+import com.github.pagehelper.PageHelper;
 import com.lu.cms.dao.CmsArticleMapper;
 import com.lu.cms.model.CmsArticle;
 import com.lu.cms.service.CmsArticleService;
@@ -21,6 +22,8 @@ public class CmsArticleServiceImpl implements CmsArticleService {
 
     @Autowired
     private CmsArticleMapper cmsArticleDao;
+    
+    private PageHelper pageHelper;
 
     @Override
     public int deleteByPrimaryKey(Integer articleId) {
@@ -59,7 +62,8 @@ public class CmsArticleServiceImpl implements CmsArticleService {
 
     @Override
     public List<CmsArticle> selectAll(int pageNum,int pageSize) {
-        return cmsArticleDao.selectAll(pageNum,pageSize);
+        pageHelper.startPage(pageNum, pageSize);
+        return cmsArticleDao.selectAll();
     }
     
     @Override

@@ -19,7 +19,7 @@ public interface CmsArticleMapper {
 
     int updateByPrimaryKey(CmsArticle record);
     
-    List<CmsArticle> selectAll(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize);
+    List<CmsArticle> selectAll();
     
     int countArticle();
 }
