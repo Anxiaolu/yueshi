@@ -67,7 +67,7 @@ public class CmsArticleServiceImpl implements CmsArticleService {
     }
     
     @Override
-    public Integer countArticle(){
+    public int countArticle(){
         return cmsArticleDao.countArticle();
     }
 }

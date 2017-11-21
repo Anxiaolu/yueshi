@@ -2,7 +2,6 @@ package com.lu.cms.dao;
 
 import com.lu.cms.model.CmsArticle;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface CmsArticleMapper {
     int deleteByPrimaryKey(Integer articleId);
@@ -21,5 +20,5 @@ public interface CmsArticleMapper {
     
     List<CmsArticle> selectAll();
     
-    int countArticle();
+    Integer countArticle();
 }

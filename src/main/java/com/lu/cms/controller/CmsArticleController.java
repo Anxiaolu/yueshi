@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -25,8 +26,11 @@ public class CmsArticleController {
     CmsArticleService cmsArticleService;
     
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String index(){
-        return "article/index";
+    public ModelAndView index(){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("articleNum", cmsArticleService.countArticle())
+                .setViewName("article/index");
+        return mv;
     }
     
     @RequestMapping(value = "/article_list",method = RequestMethod.POST)
@@ -37,7 +41,9 @@ public class CmsArticleController {
     }
     
     @RequestMapping(value = "/count")
+    @ResponseBody
     public Integer countArticle(){
+        System.out.println("count" + cmsArticleService.countArticle());
         return cmsArticleService.countArticle();
     }
 }

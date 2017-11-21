@@ -30,5 +30,5 @@ public interface CmsArticleService {
     
     List<CmsArticle> selectAll(int pageNum,int pageSize);
     
-    Integer countArticle();
+    int countArticle();
 }
