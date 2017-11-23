@@ -105,10 +105,9 @@ $(window).scroll(function () {
         type: 'POST',
         data: {pageNum: pageCount, pageSize: '5'},
         success: function (returnData) {
-            console.log(returnData);
-            var htmlList = '',
-                    htmlTemp = $("#article_list script[data-id='list_tpl']").html();
-            returnData.forEach(function (object) {
+                var htmlList = '',
+                htmlTemp = $("#article_list script[data-id='list_tpl']").html();
+                returnData.forEach(function (object) {
                 htmlList += htmlTemp.tmp(object);
             });
             $("#article_list").html(htmlList);
@@ -137,8 +136,8 @@ $(window).scroll(function () {
                 type: 'POST',
                 data: {pageNum: pageCount, pageSize: '5'},
                 success: function (returnData) {
-                    var htmlList = '';
-                    returnData.forEach(function (object) {
+                        var htmlList = '';
+                        returnData.forEach(function (object) {
                         htmlList += htmlTemp.tmp(object);
                     });
                     console.log(htmlList);

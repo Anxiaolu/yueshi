@@ -119,9 +119,9 @@
                                 </header>
                                 <p class="meta">
                                     <time class="time"><i class="glyphicon glyphicon-time"></i> $ctime$</time>
-                                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span> <a class="comment" href="##comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a>
+                                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> $readnumber$</span> <a class="comment" href="##comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> $allowcomments$</a>
                                 </p>
-                                <p class="note">$content$</p>
+                                <p class="note">$description$</p>
                             </article>
                         </script>
                     </div>
