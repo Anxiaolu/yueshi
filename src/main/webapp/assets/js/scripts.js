@@ -111,6 +111,7 @@ $(window).scroll(function () {
                 htmlList += htmlTemp.tmp(object);
             });
             $("#article_list").html(htmlList);
+            pageCount++;
         }
     })
 
@@ -130,26 +131,25 @@ $(window).scroll(function () {
 
         },
         onRenderComplete: function (pagenum) {
-            htmlTemp = $("#article_list").html();
             $.ajax({
                 url: ctx + '/article/article_list',
                 type: 'POST',
                 data: {pageNum: pageCount, pageSize: '5'},
                 success: function (returnData) {
-                        var htmlList = '';
-                        returnData.forEach(function (object) {
-                        htmlList += htmlTemp.tmp(object);
+                    var htmlList = '';
+                    returnData.forEach(function (object) {
+                        var text = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
+                        htmlList += text.tmp(object);
                     });
-                    console.log(htmlList);
-                    $("#article_list").html(htmlList);
+                    $("#article_list").append(htmlList);
                 }
             })
-            $('.excerpt .thumb').lazyload({
+            /*$('.excerpt .thumb').lazyload({
                 placeholder: '../assets/images/occupying.png',
                 threshold: 400
             });
             $('.excerpt img').attr('draggable', 'false');
-            $('.excerpt a').attr('draggable', 'false');
+            $('.excerpt a').attr('draggable', 'false');*/
         }
     });
 })();
