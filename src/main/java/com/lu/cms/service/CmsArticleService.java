@@ -31,4 +31,6 @@ public interface CmsArticleService {
     List<CmsArticle> selectAll(int pageNum,int pageSize);
     
     int countArticle();
+    
+    List<CmsArticle> selectByCategoryName(int pageNum, int pageSize,String categoryName);
 }

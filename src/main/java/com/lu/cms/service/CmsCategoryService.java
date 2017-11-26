@@ -6,6 +6,7 @@
 package com.lu.cms.service;
 
 import com.lu.cms.model.CmsCategory;
+import java.util.List;
 
 /**
  *
@@ -24,4 +25,8 @@ public interface CmsCategoryService {
     int updateByPrimaryKeySelective(CmsCategory record);
 
     int updateByPrimaryKey(CmsCategory record);
+    
+    List<CmsCategory> selectAll(int pageNum,int pageSize);
+    
+    CmsCategory selectByCategoryName(String categoryName);
 }

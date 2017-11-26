@@ -6,6 +6,7 @@
 package com.lu.cms.service;
 
 import com.lu.cms.model.CmsArticleCategory;
+import java.util.List;
 
 /**
  *
@@ -24,4 +25,8 @@ public interface CmsArticleCategoryService {
     int updateByPrimaryKeySelective(CmsArticleCategory record);
 
     int updateByPrimaryKey(CmsArticleCategory record);
+    
+    List<CmsArticleCategory> selectAll(int pageNum,int pageSize);
+    
+    List<CmsArticleCategory> selectByCategory(Integer categoryId);
 }

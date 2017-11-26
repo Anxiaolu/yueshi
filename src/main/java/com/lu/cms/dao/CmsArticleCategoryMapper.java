@@ -1,6 +1,7 @@
 package com.lu.cms.dao;
 
 import com.lu.cms.model.CmsArticleCategory;
+import java.util.List;
 
 public interface CmsArticleCategoryMapper {
     int deleteByPrimaryKey(Integer articleCategoryId);
@@ -14,4 +15,8 @@ public interface CmsArticleCategoryMapper {
     int updateByPrimaryKeySelective(CmsArticleCategory record);
 
     int updateByPrimaryKey(CmsArticleCategory record);
+    
+    List<CmsArticleCategory> selectAll();
+    
+    List<CmsArticleCategory> selectByCategory(Integer categoryId);
 }

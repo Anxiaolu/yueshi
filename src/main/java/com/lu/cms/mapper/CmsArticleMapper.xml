@@ -43,6 +43,16 @@
         <include refid="Base_Column_List" />
         from cms_article
     </select>
+    <select id="selectByCategoryName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_article 
+        where cms_article.article_id 
+            in (
+                select article_id from cms_article_category 
+                where category_id = (select cc.category_id from cms_category as cc where cc.name=#{categoryName,jdbcType=VARCHAR})
+                )
+    </select>
     <select id="countArticle" resultType="java.lang.Integer">
         select count(*) from cms_article
     </select>

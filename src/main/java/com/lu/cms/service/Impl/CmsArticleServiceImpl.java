@@ -61,13 +61,19 @@ public class CmsArticleServiceImpl implements CmsArticleService {
     }
 
     @Override
-    public List<CmsArticle> selectAll(int pageNum,int pageSize) {
+    public List<CmsArticle> selectAll(int pageNum, int pageSize) {
         pageHelper.startPage(pageNum, pageSize);
         return cmsArticleDao.selectAll();
     }
-    
+
     @Override
     public int countArticle(){
         return cmsArticleDao.countArticle();
+    }
+
+    @Override
+    public List<CmsArticle> selectByCategoryName(int pageNum, int pageSize,String categoryName) {
+        pageHelper.startPage(pageNum, pageSize);
+        return cmsArticleDao.selectByCategoryName(categoryName);
     }
 }

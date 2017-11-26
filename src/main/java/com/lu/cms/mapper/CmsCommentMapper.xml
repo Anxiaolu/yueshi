@@ -29,6 +29,11 @@
     from cms_comment
     where comment_id = #{commentId,jdbcType=INTEGER}
   </select>
+  <select id="selectByTimeDESC" resultMap="ResultMapWithBLOBs">
+      select 
+      <include refid="Base_Column_List" />
+      
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from cms_comment
     where comment_id = #{commentId,jdbcType=INTEGER}

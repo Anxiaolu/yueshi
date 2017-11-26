@@ -21,4 +21,7 @@ public interface CmsArticleMapper {
     List<CmsArticle> selectAll();
     
     Integer countArticle();
+    
+    List<CmsArticle> selectByCategoryName(String categoryName);
+    
 }
