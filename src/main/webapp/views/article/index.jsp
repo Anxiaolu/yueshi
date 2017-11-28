@@ -61,7 +61,7 @@
                                 </span> </div>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a data-cont="木庄网络博客" title="木庄网络博客" href="">首页</a></li>
+                            <!-- <li><a data-cont="木庄网络博客" title="木庄网络博客" href="">首页</a></li>
                             <li><a data-cont="列表页" title="列表页" href="list.html">列表页</a></li>
                             <li><a data-cont="详细页" title="详细页" href="show.html">详细页</a></li>
                             <li><a data-cont="404" title="404" href="404.html">404</a></li>
@@ -69,7 +69,10 @@
                             <li><a data-cont="IT技术笔记" title="IT技术笔记" href="#" >IT技术笔记</a></li>
                             <li><a data-cont="源码分享" title="源码分享" href="#" >源码分享</a></li>
                             <li><a data-cont="靠谱网赚" title="靠谱网赚" href="#" >靠谱网赚</a></li>
-                            <li><a data-cont="资讯分享" title="资讯分享" href="#" >资讯分享</a></li>
+                            <li><a data-cont="资讯分享" title="资讯分享" href="#" >资讯分享</a></li> -->
+                            <c:forEach items="${menuList}" var="m">
+                                <li><a data-cont="${m.name}" title="${m.name}" href="#" >${m.name}</a></li> 
+                                </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -102,28 +105,18 @@
                     <div class="title">
                         <h3>最新发布</h3>
                         <div class="more">                
-                            <a href="#" title="MZ-NetBlog主题" >MZ-NetBlog主题</a>                
+                            <!-- <a href="#" title="MZ-NetBlog主题" >MZ-NetBlog主题</a>                
                             <a href="#" title="IT技术笔记" >IT技术笔记</a>                
                             <a href="#" title="源码分享" >源码分享</a>                
                             <a href="#" title="靠谱网赚" >靠谱网赚</a>                
-                            <a href="#" title="资讯分享" >资讯分享</a>                
+                            <a href="#" title="资讯分享" >资讯分享</a> -->
+                            <c:forEach items="${articleCategory}" var="c">
+                                <a href="#" title="${c.name}" >${c.name}</a> 
+                            </c:forEach>                
                         </div>
                     </div>
                     <div id="article_list">
-                        <script type="text/template" data-id="list_tpl">
-                            <article class="excerpt excerpt-1" style="">
-                                <a class="focus" href="#" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
-                                <header><a class="cat" href="#" title="MZ-NetBlog主题" >$topic$<i></i></a>
-                                    <h2><a href="#" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >$title$</a>
-                                    </h2>
-                                </header>
-                                <p class="meta">
-                                    <time class="time"><i class="glyphicon glyphicon-time"></i> $ctime$</time>
-                                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> $readnumber$</span> <a class="comment" href="##comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> $allowcomments$</a>
-                                </p>
-                                <p class="note">$description$</p>
-                            </article>
-                        </script>
+                        
                     </div>
                     <nav class="pagination" style="display: none;">
                         <ul>
@@ -149,7 +142,7 @@
                                     ${articleNum}篇
                                 </h2>
                                 <h2>网站运行:
-                                    <span id="sitetime">88天 </span></h2>
+                                    <span id="sitetime"> </span></h2>
                             </div>
                             <div role="tabpanel" class="tab-pane contact" id="contact">
                                 <h2>QQ:
@@ -172,47 +165,17 @@
                 </div>
                 <div class="widget widget_hot">
                     <h3>最新评论文章</h3>
-                    <ul>            
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
+                    <ul>
+                        <c:forEach items="${articleCommentTimeDesc}" var="actd">            
+                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" >
+                                <span class="thumbnail">
                                     <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-                        <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-                                    <img class="thumb" data-original="${ctx}/assets/images/201610181739277776.jpg" src="${ctx}/assets/images/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-                                </span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-                                    2016-11-01
-                                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
+                                </span><span class="text">${actd.title}</span>
+                                <span class="muted"><i class="glyphicon glyphicon-time"></i>${actd.ctime}</span>
+                                <span class="muted"><i class="glyphicon glyphicon-eye-open"></i>${actd.allowcomments}</span>
+                            </a>
+                        </li>
+                        </c:forEach>
                     </ul>
                 </div>
                 <div class="widget widget_sentence">    

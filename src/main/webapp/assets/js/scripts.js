@@ -94,26 +94,27 @@ $(window).scroll(function () {
     }
 });
 
-(function () {
-    var startDay = new Date(1511067860622).Format("yyyy-MM-dd hh:mm:ss");
-    var now = new Date().Format("yyyy-MM-dd hh:mm:ss");
-    $("#sitetime").html($.InterVal(now, startDay) + "天");
-    var pageCount = 0;
-    var target = $('#article_list');
+function datainit(pageCount,category){
+    console.log(pageCount + category);
+    var temp_category;
+    if(category != temp_category){
+        $('#article_list').empty();
+        temp_category = category;
+    }
     $.ajax({
         url: ctx + '/article/article_list',
         type: 'POST',
-        data: {pageNum: pageCount, pageSize: '5'},
+        data: {pageNum: pageCount, pageSize: '5', category: category},
         success: function (returnData) {
-                var htmlList = '',
-                htmlTemp = $("#article_list script[data-id='list_tpl']").html();
+                var htmlList = '';
                 returnData.forEach(function (object) {
-                htmlList += htmlTemp.tmp(object);
-            });
-            $("#article_list").html(htmlList);
-            pageCount++;
-        }
-    })
+                        var text = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
+                        htmlList += text.tmp(object);
+                    })
+                pageCount++;
+                $("#article_list").html(htmlList);
+            }
+    });
 
     jQuery.ias({
         history: false,
@@ -127,14 +128,15 @@ $(window).scroll(function () {
         beforePageChange: function (curScrOffset) {
             pageCount++;
         },
-        onPageChange: function (pageNum, scrollOffset) {
-
+        onPageChange: function (pageCount, category) {
+            //console.log(pageCount + category);
         },
-        onRenderComplete: function (pagenum) {
+        onRenderComplete: function () {
+            console.log(pageCount + category);
             $.ajax({
                 url: ctx + '/article/article_list',
                 type: 'POST',
-                data: {pageNum: pageCount, pageSize: '5'},
+                data: {pageNum: pageCount, pageSize: '5',category:category},
                 success: function (returnData) {
                     var htmlList = '';
                     returnData.forEach(function (object) {
@@ -144,14 +146,20 @@ $(window).scroll(function () {
                     $("#article_list").append(htmlList);
                 }
             })
-            /*$('.excerpt .thumb').lazyload({
-                placeholder: '../assets/images/occupying.png',
-                threshold: 400
-            });
-            $('.excerpt img').attr('draggable', 'false');
-            $('.excerpt a').attr('draggable', 'false');*/
         }
     });
+}
+
+(function () {
+    var startDay = new Date(1511067860622).Format("yyyy-MM-dd hh:mm:ss");
+    var now = new Date().Format("yyyy-MM-dd hh:mm:ss");
+    $("#sitetime").html($.InterVal(now, startDay) + "天");
+    var pageCount = 0;
+    datainit(0,"");
+    $('.more a').bind('click',function(){
+        var category = this.innerHTML;
+        datainit(0,category);
+    })
 })();
 
 document.onkeydown = function (event) {
@@ -163,13 +171,3 @@ document.onkeydown = function (event) {
     }
 };
 
-function SiteSearch(send_url, divTgs) {
-    var str = $.trim($(divTgs).val());
-    if (str.length > 0 && str != "请输入关键字") {
-        str = str.replace(/\s+/g, "");
-        str = str.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\，|\。|\：|\；|\·|\~|\！|\、|\《|\》|\‘|\“|\”|\【|\】|\?{|\}|\-|\=|\——|\+|\’|\—|\？]/g, "");
-        str = str.replace(/<[^>]*>|/g, "");
-        window.location.href = send_url + "?keyword=" + encodeURI(str)
-    }
-    return false
-}
