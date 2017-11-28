@@ -24,4 +24,6 @@ public interface CmsArticleMapper {
     
     List<CmsArticle> selectByCategoryName(String categoryName);
     
+    List<CmsArticle> selectByCommentStatusTimeDesc(Integer CommentStatus);
+    
 }

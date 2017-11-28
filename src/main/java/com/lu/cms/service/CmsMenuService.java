@@ -6,6 +6,7 @@
 package com.lu.cms.service;
 
 import com.lu.cms.model.CmsMenu;
+import java.util.List;
 
 /**
  *
@@ -24,4 +25,6 @@ public interface CmsMenuService {
     int updateByPrimaryKeySelective(CmsMenu record);
 
     int updateByPrimaryKey(CmsMenu record);
+    
+    List<CmsMenu> selectAll();
 }

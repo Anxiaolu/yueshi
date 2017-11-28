@@ -6,9 +6,9 @@
 package com.lu.cms.controller;
 
 import com.lu.cms.model.CmsCategory;
-import com.lu.cms.service.CmsArticleCategoryService;
 import com.lu.cms.service.CmsArticleService;
 import com.lu.cms.service.CmsCategoryService;
+import com.lu.cms.service.CmsMenuService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,12 +32,17 @@ public class CmsArticleController {
     @Autowired
     CmsCategoryService cmsCategoryService;
     
+    @Autowired
+    CmsMenuService cmsMenuService;
+    
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public ModelAndView index(){
         ModelAndView mv = new ModelAndView();
         List<CmsCategory> categoryList = cmsCategoryService.selectAll(0, 0);
-        mv.addObject("articleCategory", categoryList);
-        mv.addObject("articleNum", cmsArticleService.countArticle())
+        mv.addObject("articleCategory", categoryList)
+          .addObject("articleNum", cmsArticleService.countArticle())
+          .addObject("menuList", cmsMenuService.selectAll())
+          .addObject("articleCommentTimeDesc", cmsArticleService.selectByCommentStatusTimeDesc(1))
                 .setViewName("article/index");
         return mv;
     }

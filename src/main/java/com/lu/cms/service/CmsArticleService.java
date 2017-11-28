@@ -33,4 +33,6 @@ public interface CmsArticleService {
     int countArticle();
     
     List<CmsArticle> selectByCategoryName(int pageNum, int pageSize,String categoryName);
+    
+    List<CmsArticle> selectByCommentStatusTimeDesc(Integer CommentStatus);
 }

@@ -1,6 +1,7 @@
 package com.lu.cms.dao;
 
 import com.lu.cms.model.CmsMenu;
+import java.util.List;
 
 public interface CmsMenuMapper {
     int deleteByPrimaryKey(Integer menuId);
@@ -14,4 +15,6 @@ public interface CmsMenuMapper {
     int updateByPrimaryKeySelective(CmsMenu record);
 
     int updateByPrimaryKey(CmsMenu record);
+    
+    List<CmsMenu> selectAll();
 }

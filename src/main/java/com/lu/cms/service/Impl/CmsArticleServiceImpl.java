@@ -76,4 +76,9 @@ public class CmsArticleServiceImpl implements CmsArticleService {
         pageHelper.startPage(pageNum, pageSize);
         return cmsArticleDao.selectByCategoryName(categoryName);
     }
+
+    @Override
+    public List<CmsArticle> selectByCommentStatusTimeDesc(Integer CommentStatus) {
+        return cmsArticleDao.selectByCommentStatusTimeDesc(CommentStatus);
+    }
 }
