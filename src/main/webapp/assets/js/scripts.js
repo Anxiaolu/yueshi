@@ -132,7 +132,7 @@ function datainit(pageCount,category){
             //console.log(pageCount + category);
         },
         onRenderComplete: function () {
-            console.log(pageCount + category);
+            console.log(pageCount + temp_category);
             $.ajax({
                 url: ctx + '/article/article_list',
                 type: 'POST',

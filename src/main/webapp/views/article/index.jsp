@@ -35,49 +35,7 @@
         <![endif]-->
     </head>
     <body class="user-select">
-        <header class="header">
-            <nav class="navbar navbar-default" id="navbar">
-                <div class="container">
-                    <div class="header-topbar hidden-xs link-border">
-                        <ul class="site-nav topmenu">
-                            <li><a href="#" ></a></li>
-                            <li><a href="#" rel="nofollow" >读者墙</a></li>
-                            <li><a href="#" title="RSS订阅" >
-                                    <i class="fa fa-rss">
-                                    </i> RSS订阅
-                                </a></li>
-                        </ul>
-                        勤记录 懂分享</div>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <h1 class="logo hvr-bounce-in"><a href="#" title="木庄网络博客"><img src="${ctx}/assets/images/201610171329086541.png" alt="木庄网络博客"></a></h1>
-                    </div>
-                    <div class="collapse navbar-collapse" id="header-navbar">
-                        <form class="navbar-form visible-xs" action="/Search" method="post">
-                            <div class="input-group">
-                                <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20" autocomplete="off">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-                                </span> </div>
-                        </form>
-                        <ul class="nav navbar-nav navbar-right">
-                            <!-- <li><a data-cont="木庄网络博客" title="木庄网络博客" href="">首页</a></li>
-                            <li><a data-cont="列表页" title="列表页" href="list.html">列表页</a></li>
-                            <li><a data-cont="详细页" title="详细页" href="show.html">详细页</a></li>
-                            <li><a data-cont="404" title="404" href="404.html">404</a></li>
-                            <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="#" >MZ-NetBolg主题</a></li>
-                            <li><a data-cont="IT技术笔记" title="IT技术笔记" href="#" >IT技术笔记</a></li>
-                            <li><a data-cont="源码分享" title="源码分享" href="#" >源码分享</a></li>
-                            <li><a data-cont="靠谱网赚" title="靠谱网赚" href="#" >靠谱网赚</a></li>
-                            <li><a data-cont="资讯分享" title="资讯分享" href="#" >资讯分享</a></li> -->
-                            <c:forEach items="${menuList}" var="m">
-                                <li><a data-cont="${m.name}" title="${m.name}" href="#" >${m.name}</a></li> 
-                                </c:forEach>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <jsp:include page="/views/front-common/nav.jsp" flush="true"/>
         <section class="container">
             <div class="content-wrap">
                 <div class="content">
@@ -89,11 +47,11 @@
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
                                 <a href="#" target="_blank" title="木庄网络博客源码" >
-                                    <img src="${ctx}/assets/images//201610181557196870.jpg" alt="木庄网络博客源码" class="img-responsive"></a>
+                                    <img src="${ctx}/assets/images/banner_01.jpg" alt="木庄网络博客源码" class="img-responsive"></a>
                             </div>
                             <div class="item">
                                 <a href="#" target="_blank" title="专业网站建设" >
-                                    <img src="${ctx}/assets/images//201610241227558789.jpg" alt="专业网站建设" class="img-responsive"></a>
+                                    <img src="${ctx}/assets/images/banner_02.jpg" alt="专业网站建设" class="img-responsive"></a>
                             </div>
                         </div>
                         <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">上一个</span> </a> <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">下一个</span> </a> </div>
@@ -179,12 +137,10 @@
                     </ul>
                 </div>
                 <div class="widget widget_sentence">    
-                    <a href="#" target="_blank" rel="nofollow" title="专业网站建设" >
-                        <img style="width: 100%" src="${ctx}/assets/images//201610241224221511.jpg" alt="专业网站建设" ></a>    
+                      
                 </div>
                 <div class="widget widget_sentence">    
-                    <a href="#" target="_blank" rel="nofollow" title="MZ-NetBlog主题" >
-                        <img style="width: 100%" src="${ctx}/assets/images/ad.jpg" alt="MZ-NetBlog主题" ></a>    
+                        
                 </div>
                 <div class="widget widget_sentence">
                     <h3>友情链接</h3>
@@ -208,3 +164,4 @@
         <script src="${ctx}/assets/js/data-init.js"></script>
     </body>
 </html>
+    
