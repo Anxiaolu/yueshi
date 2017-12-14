@@ -60,7 +60,7 @@
         where cms_article.article_id 
             in (
                 select article_id from cms_comment where status = #{CommentStatus,jdbcType=INTEGER}
-                ) order by ctime desc;
+                ) order by ctime desc
     </select>
     <select id="countArticle" resultType="java.lang.Integer">
         select count(*) from cms_article

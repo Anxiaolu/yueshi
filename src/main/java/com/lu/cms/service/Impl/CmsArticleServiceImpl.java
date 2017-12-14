@@ -79,6 +79,7 @@ public class CmsArticleServiceImpl implements CmsArticleService {
 
     @Override
     public List<CmsArticle> selectByCommentStatusTimeDesc(Integer CommentStatus) {
+        pageHelper.startPage(0, 5);
         return cmsArticleDao.selectByCommentStatusTimeDesc(CommentStatus);
     }
 }

@@ -5,10 +5,14 @@
  */
 package com.lu.cms.controller;
 
+import com.lu.cms.model.CmsArticle;
+import com.lu.cms.model.CmsArticleExample;
 import com.lu.cms.model.CmsCategory;
 import com.lu.cms.service.CmsArticleService;
 import com.lu.cms.service.CmsCategoryService;
 import com.lu.cms.service.CmsMenuService;
+import com.lu.cms.service.CmsTopicService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,8 +39,12 @@ public class CmsArticleController {
     @Autowired
     CmsMenuService cmsMenuService;
     
+    @Autowired
+    CmsTopicService cmsTopicService;
+    
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public ModelAndView index(){
+        System.out.println("com.lu.cms.controller.CmsArticleController.index()" + "111111111");
         ModelAndView mv = new ModelAndView();
         List<CmsCategory> categoryList = cmsCategoryService.selectAll(0, 0);
         mv.addObject("articleCategory", categoryList)
@@ -47,16 +55,34 @@ public class CmsArticleController {
         return mv;
     }
     
+    @RequestMapping(value = "/index_article_list",method = RequestMethod.POST)
+    @ResponseBody
+    public Object getArticleList(@RequestParam("pageNum")Integer pageNum,
+                                @RequestParam("pageSize")Integer pageSize){
+        return cmsArticleService.selectAll(pageNum, pageSize);
+    }
+    
     @RequestMapping(value = "/article_list",method = RequestMethod.POST)
     @ResponseBody
     public Object getArticleList(@RequestParam("pageNum")Integer pageNum,
                                 @RequestParam("pageSize")Integer pageSize,
                                 @RequestParam("category")String category){
+        List<CmsArticleExample> articleExamples = new ArrayList<>();
         if (category.isEmpty()) {
-            return cmsArticleService.selectAll(pageNum, pageSize);
+            List<CmsArticle> articles = cmsArticleService.selectAll(pageNum, pageSize);
+            for (int i = 0; i < articles.size(); i++) {
+                //System.out.println(new CmsArticleExample(articles.get(i),cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId())));
+                articleExamples.add(new CmsArticleExample(articles.get(i),cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId())));
+//                articleExamples.get(i).setTopic(cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId()));
+            }   
+            return articleExamples;
         }
         else{
-            return cmsArticleService.selectByCategoryName(pageNum,pageSize,category);
+            List<CmsArticle> articles = cmsArticleService.selectByCategoryName(pageNum,pageSize,category);
+            for (int i = 0; i < articles.size(); i++) {
+                //articleExamples.get(i).setTopic(cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId()));
+            }
+            return articleExamples;
         }
     }
     

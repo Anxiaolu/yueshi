@@ -180,5 +180,10 @@ public class CmsArticle {
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
     }
+
+    @Override
+    public String toString() {
+        return "CmsArticle{" + "articleId=" + articleId + ", topicId=" + topicId + ", title=" + title + ", author=" + author + ", fromurl=" + fromurl + ", image=" + image + ", keywords=" + keywords + ", description=" + description + ", type=" + type + ", allowcomments=" + allowcomments + ", status=" + status + ", userId=" + userId + ", readnumber=" + readnumber + ", top=" + top + ", systemId=" + systemId + ", ctime=" + ctime + ", orders=" + orders + ", content=" + content + '}';
+    }
     
 }

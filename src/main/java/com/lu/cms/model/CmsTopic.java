@@ -50,4 +50,10 @@ public class CmsTopic {
     public void setCtime(Long ctime) {
         this.ctime = ctime;
     }
+
+    @Override
+    public String toString() {
+        return "CmsTopic{" + "topicId=" + topicId + ", title=" + title + ", description=" + description + ", url=" + url + ", ctime=" + ctime + '}';
+    }
+    
 }
