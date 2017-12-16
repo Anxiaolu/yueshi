@@ -94,8 +94,69 @@ $(window).scroll(function () {
     }
 });
 
-function datainit(pageCount,category){
-    console.log(pageCount + category);
+
+(function () {
+    var startDay = new Date(1511067860622).Format("yyyy-MM-dd hh:mm:ss");
+    var now = new Date().Format("yyyy-MM-dd hh:mm:ss");
+    $("#sitetime").html($.InterVal(now, startDay) + "天");
+    var pageCount = 0;
+    var target = $('#article_list');
+    $.ajax({
+        url: ctx + '/article/index_article_list',
+        type: 'POST',
+        data: {pageNum: pageCount, pageSize: '5'},
+        success: function (returnData) {
+            var htmlList = '',
+            htmlTemp = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
+            returnData.forEach(function (object) {
+                htmlList += htmlTemp.tmp(object);
+            });
+            $("#article_list").html(htmlList);
+        }
+    })
+
+    jQuery.ias({
+        history: false,
+        container: '.content',
+        item: '.excerpt',
+        pagination: '.pagination',
+        next: '.next-page a',
+        trigger: '查看更多',
+        loader: '<div class="pagination-loading"><img src="../assets/images/loading.gif" /></div>',
+        triggerPageThreshold: 5,
+        beforePageChange: function (curScrOffset) {
+            pageCount++;
+        },
+        onPageChange: function (pageNum, scrollOffset) {
+
+        },
+        onRenderComplete: function (pagenum) {
+            htmlTemp = $("#article_list").html();
+            $.ajax({
+                url: ctx + '/article/index_article_list',
+                type: 'POST',
+                data: {pageNum: pageCount, pageSize: '5'},
+                success: function (returnData) {
+                    var htmlList = '';
+                    returnData.forEach(function (object) {
+                        var text = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
+                        htmlList += text.tmp(object);
+                    });
+                    $("#article_list").html(htmlList);
+                }
+            })
+            $('.excerpt .thumb').lazyload({
+                placeholder: '../assets/images/occupying.png',
+                threshold: 400
+            });
+            $('.excerpt img').attr('draggable', 'false');
+            $('.excerpt a').attr('draggable', 'false');
+        }
+    });
+})();
+
+/*function datainit(pageCount,category){
+    //console.log(pageCount + category);
     var temp_category;
     if(category != temp_category){
         $('#article_list').empty();
@@ -110,6 +171,7 @@ function datainit(pageCount,category){
                 returnData.forEach(function (object) {
                         var text = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
                         htmlList += text.tmp(object);
+                        console.log(text.tmp(object));
                     })
                 pageCount++;
                 $("#article_list").html(htmlList);
@@ -132,7 +194,7 @@ function datainit(pageCount,category){
             //console.log(pageCount + category);
         },
         onRenderComplete: function () {
-            console.log(pageCount + temp_category);
+            //console.log(pageCount + temp_category);
             $.ajax({
                 url: ctx + '/article/article_list',
                 type: 'POST',
@@ -160,7 +222,7 @@ function datainit(pageCount,category){
         var category = this.innerHTML;
         datainit(0,category);
     })
-})();
+})();*/
 
 document.onkeydown = function (event) {
     var e = event || window.event || arguments.callee.caller.arguments[0];
