@@ -1,11 +1,11 @@
 <article class="excerpt excerpt-1" style="">
-    <header><a class="cat" href="#" title="$topic_id$" >$topic_id$<i></i></a>
-        <h2><a href="#" title="$title$" target="_blank" >$title$</a>
+    <header><a class="cat" href="#" title="$cmsTopic.title$" >$cmsTopic.title$<i></i></a>
+        <h2><a href="#" title="$cmsArticle.title$" target="_blank" >$cmsArticle.title$</a>
         </h2>
     </header>
     <p class="meta">
-        <time class="time"><i class="glyphicon glyphicon-time"></i> $ctime$</time>
-        <span class="views"><i class="glyphicon glyphicon-eye-open"></i> $readnumber$</span> <a class="comment" href="##comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> $allowcomments$</a>
+        <time class="time"><i class="glyphicon glyphicon-time"></i> $cmsArticle.ctime$</time>
+        <span class="views"><i class="glyphicon glyphicon-eye-open"></i> $cmsArticle.readnumber$</span> <a class="comment" href="##comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> $cmsArticle.allowcomments$</a>
     </p>
-    <p class="note">$description$</p>
-</article>   
+    <p class="note">$cmsArticle.description$</p>
+</article>  
