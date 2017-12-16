@@ -23,7 +23,6 @@
         return this.replace(/\$\w+[^%&',;=?$\x22]+\$/g, function (matchs) {
             //var returns = obj[matchs.replace(/\$/g, "")];
             //return (returns + "") == "undefined" ? "" : returns;
-            console.log(matchs);
             return eval("obj." + matchs.replace(/\$/g, ""));
         });
     };

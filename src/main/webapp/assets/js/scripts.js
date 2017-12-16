@@ -102,19 +102,19 @@ $(window).scroll(function () {
     var pageCount = 0;
     var target = $('#article_list');
     $.ajax({
-        url: ctx + '/article/index_article_list',
+        url: ctx + '/article/article_list',
         type: 'POST',
         data: {pageNum: pageCount, pageSize: '5'},
         success: function (returnData) {
             var htmlList = '',
-            htmlTemp = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
+            htmlTemp = $.ajax({url: ctx + "/views/front/front-common/article_model.html",async:false}).responseText;
             returnData.forEach(function (object) {
                 htmlList += htmlTemp.tmp(object);
             });
             $("#article_list").html(htmlList);
         }
     })
-
+    pageCount++;
     jQuery.ias({
         history: false,
         container: '.content',
@@ -133,16 +133,16 @@ $(window).scroll(function () {
         onRenderComplete: function (pagenum) {
             htmlTemp = $("#article_list").html();
             $.ajax({
-                url: ctx + '/article/index_article_list',
+                url: ctx + '/article/article_list',
                 type: 'POST',
                 data: {pageNum: pageCount, pageSize: '5'},
                 success: function (returnData) {
                     var htmlList = '';
                     returnData.forEach(function (object) {
-                        var text = $.ajax({url: ctx + "/views/front-common/article_model.html",async:false}).responseText;
+                        var text = $.ajax({url: ctx + "/views/front/front-common/article_model.html",async:false}).responseText;
                         htmlList += text.tmp(object);
                     });
-                    $("#article_list").html(htmlList);
+                    $("#article_list").append(htmlList);
                 }
             })
             $('.excerpt .thumb').lazyload({
