@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * 博客首页的控制类
  * @author huanlu
  */
 @Controller
@@ -44,51 +44,33 @@ public class CmsArticleController {
     
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public ModelAndView index(){
-        System.out.println("com.lu.cms.controller.CmsArticleController.index()" + "111111111");
         ModelAndView mv = new ModelAndView();
         List<CmsCategory> categoryList = cmsCategoryService.selectAll(0, 0);
         mv.addObject("articleCategory", categoryList)
           .addObject("articleNum", cmsArticleService.countArticle())
           .addObject("menuList", cmsMenuService.selectAll())
           .addObject("articleCommentTimeDesc", cmsArticleService.selectByCommentStatusTimeDesc(1))
-                .setViewName("article/index");
+          .addObject("hottestArticle", cmsArticleService.selectByLastHottest(1, 1))
+                .setViewName("front/article/index");
         return mv;
     }
     
-    @RequestMapping(value = "/index_article_list",method = RequestMethod.POST)
+    @RequestMapping(value = "/article_list", method = RequestMethod.POST)
     @ResponseBody
-    public Object getArticleList(@RequestParam("pageNum")Integer pageNum,
-                                @RequestParam("pageSize")Integer pageSize){
-        return cmsArticleService.selectAll(pageNum, pageSize);
-    }
-    
-    @RequestMapping(value = "/article_list",method = RequestMethod.POST)
-    @ResponseBody
-    public Object getArticleList(@RequestParam("pageNum")Integer pageNum,
-                                @RequestParam("pageSize")Integer pageSize,
-                                @RequestParam("category")String category){
+    public Object getArticleList(@RequestParam("pageNum") Integer pageNum,
+        @RequestParam("pageSize") Integer pageSize,
+        @RequestParam(value = "category", required = false) String category) {
         List<CmsArticleExample> articleExamples = new ArrayList<>();
-        if (category.isEmpty()) {
-            List<CmsArticle> articles = cmsArticleService.selectAll(pageNum, pageSize);
-            for (int i = 0; i < articles.size(); i++) {
-                //System.out.println(new CmsArticleExample(articles.get(i),cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId())));
-                articleExamples.add(new CmsArticleExample(articles.get(i),cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId())));
-//                articleExamples.get(i).setTopic(cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId()));
-            }   
-            return articleExamples;
+        List<CmsArticle> articles = new ArrayList<>();
+        if (category == null || category.isEmpty()) {
+            articles = cmsArticleService.selectAll(pageNum, pageSize);
+        } else {
+            articles = cmsArticleService.selectByCategoryName(pageNum, pageSize, category);
         }
-        else{
-            List<CmsArticle> articles = cmsArticleService.selectByCategoryName(pageNum,pageSize,category);
-            for (int i = 0; i < articles.size(); i++) {
-                //articleExamples.get(i).setTopic(cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId()));
-            }
-            return articleExamples;
+        for (int i = 0; i < articles.size(); i++) {
+            articleExamples.add(new CmsArticleExample(articles.get(i), cmsTopicService.selectByPrimaryKey(articles.get(i).getTopicId())));
         }
+        return articleExamples;
     }
     
-    @RequestMapping(value = "/count")
-    @ResponseBody
-    public Integer countArticle(){
-        return cmsArticleService.countArticle();
-    }
 }

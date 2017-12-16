@@ -6,6 +6,7 @@
 package com.lu.cms.service;
 
 import com.lu.cms.model.CmsTag;
+import java.util.List;
 
 /**
  *
@@ -24,4 +25,6 @@ public interface CmsTagService {
     int updateByPrimaryKeySelective(CmsTag record);
 
     int updateByPrimaryKey(CmsTag record);
+    
+    List<CmsTag> selectAll();
 }

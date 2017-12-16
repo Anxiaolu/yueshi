@@ -1,6 +1,7 @@
 package com.lu.cms.dao;
 
 import com.lu.cms.model.CmsTag;
+import java.util.List;
 
 public interface CmsTagMapper {
     int deleteByPrimaryKey(Integer tagId);
@@ -14,4 +15,6 @@ public interface CmsTagMapper {
     int updateByPrimaryKeySelective(CmsTag record);
 
     int updateByPrimaryKey(CmsTag record);
+    
+    List<CmsTag> selectAll();
 }

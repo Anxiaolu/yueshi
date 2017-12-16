@@ -82,4 +82,9 @@ public class CmsArticleServiceImpl implements CmsArticleService {
         pageHelper.startPage(0, 5);
         return cmsArticleDao.selectByCommentStatusTimeDesc(CommentStatus);
     }
+
+    @Override
+    public CmsArticle selectByLastHottest(Integer articleType, Integer articleNum) {
+        return cmsArticleDao.selectByLastHottest(articleType, articleNum);
+    }
 }

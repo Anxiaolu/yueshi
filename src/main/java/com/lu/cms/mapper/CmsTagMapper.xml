@@ -15,6 +15,11 @@
   <sql id="Base_Column_List" >
     tag_id, name, description, icon, type, alias, system_id, ctime, orders
   </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"/>
+      from cms_tag
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

@@ -11,6 +11,8 @@ public interface CmsArticleMapper {
     int insertSelective(CmsArticle record);
 
     CmsArticle selectByPrimaryKey(Integer articleId);
+    
+    CmsArticle selectByLastHottest(Integer articleType,Integer articleNum);
 
     int updateByPrimaryKeySelective(CmsArticle record);
 

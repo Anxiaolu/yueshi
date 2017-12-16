@@ -43,6 +43,13 @@
         <include refid="Base_Column_List" />
         from cms_article
     </select>
+    <select id="selectByLastHottest" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_article 
+        where cms_article.type = #{arg0} 
+        order by ctime desc limit #{arg1}
+    </select>
     <select id="selectByCategoryName" resultMap="BaseResultMap" parameterType="java.lang.String">
         select
         <include refid="Base_Column_List"/>
