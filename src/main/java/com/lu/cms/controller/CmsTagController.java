@@ -37,6 +37,7 @@ public class CmsTagController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("tagList", cmsTagService.selectAll())
           .addObject("menuList", cmsMenuService.selectAll())
+          .addObject("articleNum", cmsArticleService.countArticle())
           .addObject("articleCommentTimeDesc", cmsArticleService.selectByCommentStatusTimeDesc(1))
             .setViewName("front/nav/tag");
         return mv;
