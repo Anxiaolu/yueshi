@@ -16,16 +16,20 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <jsp:include page="/views/front/front-common/front-header.jsp" flush="true"/>
+        <link rel="stylesheet" type="text/css" href="${ctx}/assets/css/nav/tag/style.css">
     </head>
     <body class="user-select">
         <jsp:include page="/views/front/front-common/nav.jsp" flush="true"/>
-        <section class="container">
+        <section class="container content-page">
             <div class="content-wrap">
                 <div class="content">
                     <div>
-                        <ul>
+                        <header class="article-header">
+                            <h1 class="article-tag-title">标签云</h1>
+                        </header>
+                        <ul class="plinks tag-list ">
                             <c:forEach items="${tagList}" var="t">
-                             <li>${t.name}</li> 
+                             <li><a title="" draggable="false">${t.name}</a></li> 
                             </c:forEach>
                         </ul>
                     </div>

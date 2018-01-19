@@ -15,5 +15,5 @@
 <script src="${ctx}/assets/js/bootstrap.min.js"></script>
 <script src="${ctx}/assets/js/jquery.ias.js"></script>
 <script src="${ctx}/assets/js/common/date-convert.js"></script>
-<script src="${ctx}/assets/js/scripts.js"></script>
 <script src="${ctx}/assets/js/data-init.js"></script>
+<script src="${ctx}/assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>

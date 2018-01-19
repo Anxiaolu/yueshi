@@ -8,6 +8,7 @@
 <script>var ctx = '${ctx}';</script>
 <link rel="stylesheet" type="text/css" href="${ctx}/assets/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/assets/css/nprogress.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/assets/vendor/jquery-confirm/jquery-confirm.min.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/assets/css/style.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/assets/css/font-awesome.min.css">
 <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/images/icon.png">
