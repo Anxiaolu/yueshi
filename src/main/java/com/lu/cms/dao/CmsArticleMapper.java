@@ -24,7 +24,13 @@ public interface CmsArticleMapper {
     
     Integer countArticle();
     
+    int countArticleByCategory(String categoryName);
+    
+    int countArticleByTag(String TagName);
+    
     List<CmsArticle> selectByCategoryName(String categoryName);
+    
+    List<CmsArticle> selectByTagName(String tagName);
     
     List<CmsArticle> selectByCommentStatusTimeDesc(Integer CommentStatus);
     

@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.lu.cms.model;
+package com.lu.cms.model.Example;
+
+import com.lu.cms.model.CmsArticle;
+import com.lu.cms.model.CmsTopic;
 
 /**
  * 用于前台数据展示的样例类

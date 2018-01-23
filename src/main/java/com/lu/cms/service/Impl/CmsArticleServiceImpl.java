@@ -67,7 +67,14 @@ public class CmsArticleServiceImpl implements CmsArticleService {
     }
 
     @Override
-    public int countArticle(){
+    public int countArticle(String categoryName,String TagName){
+        if(!(categoryName == null ||  categoryName.isEmpty()))
+        {
+            return cmsArticleDao.countArticleByCategory(categoryName);
+        }
+        if (!(TagName == null || TagName.isEmpty())) {
+            return  cmsArticleDao.countArticleByTag(TagName);
+        }
         return cmsArticleDao.countArticle();
     }
 
@@ -86,5 +93,11 @@ public class CmsArticleServiceImpl implements CmsArticleService {
     @Override
     public CmsArticle selectByLastHottest(Integer articleType, Integer articleNum) {
         return cmsArticleDao.selectByLastHottest(articleType, articleNum);
+    }
+
+    @Override
+    public List<CmsArticle> selectByTagName(int pageNum, int pageSize,String tagName) {
+        pageHelper.startPage(pageNum, pageSize);
+        return cmsArticleDao.selectByTagName(tagName);
     }
 }

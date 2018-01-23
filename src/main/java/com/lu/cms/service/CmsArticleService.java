@@ -32,9 +32,11 @@ public interface CmsArticleService {
     
     List<CmsArticle> selectAll(int pageNum,int pageSize);
     
-    int countArticle();
+    int countArticle(String categoryName,String TagName);
     
     List<CmsArticle> selectByCategoryName(int pageNum, int pageSize,String categoryName);
     
     List<CmsArticle> selectByCommentStatusTimeDesc(Integer CommentStatus);
+    
+    List<CmsArticle> selectByTagName(int pageNum, int pageSize,String tagName);
 }

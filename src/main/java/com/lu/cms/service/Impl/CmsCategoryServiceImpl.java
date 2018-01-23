@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
  * @author huanlu
  */
 @Service
-public class CmsCategoryServiceImpl implements CmsCategoryService{
-    
+public class CmsCategoryServiceImpl implements CmsCategoryService {
+
     @Autowired
     private CmsCategoryMapper cmsCategoryMapper;
 
@@ -64,7 +64,7 @@ public class CmsCategoryServiceImpl implements CmsCategoryService{
     }
 
     @Override
-    public CmsCategory selectByCategoryName(String categoryName) {
+    public CmsCategory selectByCategoryName( String categoryName) {
         return cmsCategoryMapper.selectByCategoryName(categoryName);
     }
 }

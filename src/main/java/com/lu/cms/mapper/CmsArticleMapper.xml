@@ -60,6 +60,16 @@
                 where category_id = (select cc.category_id from cms_category as cc where cc.name=#{categoryName,jdbcType=VARCHAR})
                 )
     </select>
+    <select id="selectByTagName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_article 
+        where cms_article.article_id 
+            in (
+                select article_id from cms_article_tag 
+                where tag_id = (select ct.tag_id from cms_tag as ct where binary ct.name = #{tagName,jdbcType=INTEGER})
+                )
+    </select>
     <select id="selectByCommentStatusTimeDesc" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select 
         <include refid="Base_Column_List" />
@@ -71,6 +81,22 @@
     </select>
     <select id="countArticle" resultType="java.lang.Integer">
         select count(*) from cms_article
+    </select>
+    <select id="countArticleByCategory" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(*) from cms_article
+        where cms_article.article_id 
+            in (
+                select article_id from cms_article_category 
+                where category_id = (select cc.category_id from cms_category as cc where binary cc.name=#{categoryName,jdbcType=VARCHAR})
+                )
+    </select>
+    <select id="countArticleByTag" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(*) from cms_article
+        where cms_article.article_id 
+            in (
+                select article_id from cms_article_tag 
+                where tag_id = (select ct.tag_id from cms_tag as ct where binary ct.name=#{TagName,jdbcType=VARCHAR})
+                )
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
         delete from cms_article
