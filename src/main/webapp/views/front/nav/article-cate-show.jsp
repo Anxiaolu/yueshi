@@ -29,7 +29,7 @@
                         </header>
                         <ul class="plinks tag-list ptags">
                             <c:forEach items="${categorys}" var="c">
-                             <li><a href="${ctx}/category/articleList/${c.name}" draggable="false">${c.name}<span class="badge">${c.type}</span></a></li> 
+                             <li><a href="${ctx}/category/articleList/${c.name}" draggable="false">${c.name}</a></li> 
                             </c:forEach>
                         </ul>
                     </div>

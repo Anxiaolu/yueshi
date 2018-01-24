@@ -107,7 +107,7 @@ $(window).scroll(function () {
         data: {pageNum: pageCount, pageSize: '5'},
         success: function (returnData) {
             var htmlList = '',
-            htmlTemp = $.ajax({url: ctx + "/views/front/front-common/article_model.html",async:false}).responseText;
+            htmlTemp = $.ajax({url: ctx + "/views/front/front-common/article_model.jsp",async:false}).responseText;
             returnData.forEach(function (object) {
                 htmlList += htmlTemp.tmp(object);
             });
@@ -139,7 +139,7 @@ $(window).scroll(function () {
                 success: function (returnData) {
                     var htmlList = '';
                     returnData.forEach(function (object) {
-                        var text = $.ajax({url: ctx + "/views/front/front-common/article_model.html",async:false}).responseText;
+                        var text = $.ajax({url: ctx + "/views/front/front-common/article_model.jsp",async:false}).responseText;
                         htmlList += text.tmp(object);
                     });
                     $("#article_list").append(htmlList);

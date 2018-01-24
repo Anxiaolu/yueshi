@@ -55,21 +55,21 @@
   </article>
   <div class="article-tags">标签：<a href="#list/2/" rel="tag" >DTcms博客</a><a href="#list/3/" rel="tag" >木庄网络博客</a><a href="#list/4/" rel="tag" >独立博客</a><a href="#list/5/" rel="tag" >修复优化</a>
 	</div>
-  <!-- <div class="relates">
-	<div class="title">
-	  <h3>相关推荐</h3>
-	</div>
-	<ul>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
-	</ul>
-  </div> -->
+  <div class="relates">
+  	<div class="title">
+  	  <h3>相关推荐</h3>
+  	</div>
+  	<ul>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	  <li><a href="#" title="" >用DTcms做一个独立博客网站（响应式模板）-MZ-NetBlog主题</a></li>
+  	</ul>
+  </div>
   <div class="title" id="comment">
 	<h3>评论</h3>
   </div>
@@ -100,6 +100,7 @@
         </section>
         <jsp:include page="/views/front/front-common/front-footer.jsp" flush="true"/>
     </body>
+    <script type="text/javascript" src="${ctx}/assets/js/front/article-show.js"></script>
     <script type="text/javascript">
         $('#comment-submit').bind('click',function(){
         	$.ajax('${ctx}/comment/', settings, settings)

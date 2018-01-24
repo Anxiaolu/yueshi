@@ -52,7 +52,7 @@
                             <a href="#" title="靠谱网赚" >靠谱网赚</a>                
                             <a href="#" title="资讯分享" >资讯分享</a> -->
                             <c:forEach items="${articleCategory}" var="c">
-                                <a href="#" title="${c.name}" >${c.name}</a> 
+                                <a href="${ctx}/category/articleList/${c.name}" title="${c.name}" >${c.name}</a> 
                             </c:forEach>                
                         </div>
                     </div>
@@ -73,5 +73,6 @@
             <jsp:include page="/views/front/front-common/right.jsp" flush="true"/>
         </section>
         <jsp:include page="/views/front/front-common/front-footer.jsp" flush="true"/>
+        <script src="${ctx}/assets/js/scripts.js"></script>
     </body>
 </html>

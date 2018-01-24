@@ -26,3 +26,9 @@
 	width: 20%;
 	float: left;
 }
+
+@media screen and (max-width: 1000px){
+	.content-page{
+		padding-right: 0px;
+	}
+}

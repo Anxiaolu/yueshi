@@ -27,9 +27,9 @@
                         <header class="article-header">
                             <h1 class="article-tag-title">标签云</h1>
                         </header>
-                        <ul class="plinks tag-list ">
+                        <ul class="plinks tag-list">
                             <c:forEach items="${tagList}" var="t">
-                             <li><a title="" draggable="false">${t.name}</a></li> 
+                             <li><a title="${t.name}" href="${ctx}/articleTag/articleList/${t.name}" draggable="false">${t.name}</a></li> 
                             </c:forEach>
                         </ul>
                     </div>
