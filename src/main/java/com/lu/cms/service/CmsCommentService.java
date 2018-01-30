@@ -6,6 +6,7 @@
 package com.lu.cms.service;
 
 import com.lu.cms.model.CmsComment;
+import java.util.List;
 
 /**
  *
@@ -26,4 +27,6 @@ public interface CmsCommentService {
     int updateByPrimaryKeyWithBLOBs(CmsComment record);
 
     int updateByPrimaryKey(CmsComment record);
+    
+    List<CmsComment> selectByArticleId(Integer articleId);
 }

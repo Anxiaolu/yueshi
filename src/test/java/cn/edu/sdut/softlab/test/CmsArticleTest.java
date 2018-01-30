@@ -58,10 +58,10 @@ public class CmsArticleTest {
     
     @Test
     public void selectAllUser(){
-//        List<CmsArticle> articles = cmsArticleService.selectAll(2,10);
-//        for (CmsArticle article : articles) {
-//            System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectAllUser()" + article.toString());
-//        }
-        System.out.println("count" + cmsArticleService.countArticle());
+        List<CmsArticle> articles = cmsArticleService.selectAll(0,5);
+        for (CmsArticle article : articles) {
+            System.out.println("cn.edu.sdut.softlab.test.CmsArticleTest.selectAllUser()" + article.toString());
+        }
+        //System.out.println("count" + cmsArticleService.countArticle());
     }
 }

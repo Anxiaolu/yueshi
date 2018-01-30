@@ -67,8 +67,9 @@ public class CmsArticleController {
         List<CmsArticle> articles = new ArrayList<>();
         if (!(category == null || category.isEmpty())) {
             articles = cmsArticleService.selectByCategoryName(pageNum, pageSize, category);
-        } else if (!(tag == null || tag.isEmpty())) {
-            articles = cmsArticleService.selectByTagName(pageNum, pageSize, tag);
+            if (articles.isEmpty() && !(tag == null || tag.isEmpty())) {
+                articles = cmsArticleService.selectByTagName(pageNum, pageSize, tag);
+            }
         } else {
             articles = cmsArticleService.selectAll(pageNum, pageSize);
         }
@@ -85,12 +86,22 @@ public class CmsArticleController {
         return cmsArticleService.countArticle(category,tag);
     }
     
-    @RequestMapping(value = "/article-content/{articleId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/articleContent/{articleId}",method = RequestMethod.GET)
     public ModelAndView getArticleShow(@PathVariable("articleId") Integer articleId) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("article", cmsArticleService.selectByPrimaryKey(articleId))
             .setViewName("front/article/article-show");
         return mv;
     }
-
+    
+    /**
+     * 作为对外文章的查询接口
+     * @param articleId
+     * @return 
+     */
+    @RequestMapping(value = "/article-content/{articleId}",method = RequestMethod.GET)
+    @ResponseBody
+    public Object getArtilceContent(@PathVariable(name = "articleId")Integer articleId){
+        return cmsArticleService.selectByPrimaryKey(articleId);
+    }
 }

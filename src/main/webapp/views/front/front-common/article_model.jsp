@@ -8,7 +8,7 @@
 <script>var ctx = '${ctx}';</script>
 <article class="excerpt excerpt-1" style="">
     <header><a class="cat" href="#" title="$cmsTopic.title$" >$cmsTopic.title$<i></i></a>
-        <h2><a href="${ctx}/article/article-content/$cmsArticle.articleId$" title="$cmsArticle.title$" target="_blank" >$cmsArticle.title$</a>
+        <h2><a href="${ctx}/article/articleContent/$cmsArticle.articleId$" title="$cmsArticle.title$" target="_blank" >$cmsArticle.title$</a>
         </h2>
     </header>
     <p class="meta">
